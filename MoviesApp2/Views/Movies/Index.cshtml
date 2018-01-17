@@ -24,8 +24,9 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
+                @item.Category.Name
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -35,6 +36,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
                 @Html.ActionLink("Details", "Details", new {id = item.Id}) |
