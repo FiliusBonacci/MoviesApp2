@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MoviesApp2.Controllers;
 using MoviesApp2.Models;
 using MoviesApp2.ViewModels;
 

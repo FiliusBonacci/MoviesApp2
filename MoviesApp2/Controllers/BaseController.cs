@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MoviesApp.Controllers
+namespace MoviesApp2.Controllers
 {
     public class BaseController : Controller
     {
