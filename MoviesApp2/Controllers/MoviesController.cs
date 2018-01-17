@@ -10,6 +10,8 @@ using MoviesApp2.Controllers;
 using MoviesApp2.Models;
 using MoviesApp2.ViewModels;
 
+//using MoviesApp2.ViewModels;
+
 namespace MoviesApp2.Controllers
 {
     public class MoviesController : BaseController
