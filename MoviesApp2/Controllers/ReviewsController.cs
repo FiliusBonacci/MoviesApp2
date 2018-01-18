@@ -73,8 +73,8 @@ namespace MoviesApp2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
-            if (review == null || review.UserId != User.Identity.GetUserId())
+            var review = db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
