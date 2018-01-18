@@ -306,6 +306,8 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Movies\Edytuj.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Movies\_ViewStart.cshtml" />
+    <Content Include="Views\Movies\_MoviesLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
