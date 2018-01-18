@@ -197,6 +197,10 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Migrations\201801181627410_shit.cs" />
+    <Compile Include="Migrations\201801181627410_shit.Designer.cs">
+      <DependentUpon>201801181627410_shit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CreateMovieViewModel.cs" />
     <Compile Include="DB\MoviesContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -316,6 +320,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801171632214_initial.resx">
       <DependentUpon>201801171632214_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801181627410_shit.resx">
+      <DependentUpon>201801181627410_shit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

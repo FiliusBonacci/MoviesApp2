@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MoviesApp2.Models;
-using MoviesApp2.Models;
+
 
 namespace MoviesApp2.Controllers
 {
