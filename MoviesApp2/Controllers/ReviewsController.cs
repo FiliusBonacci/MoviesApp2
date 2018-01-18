@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MoviesApp2.Controllers;
 using MoviesApp2.Models;
 
@@ -16,7 +17,7 @@ namespace MoviesApp2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reviews
-        public ActionResult Index([Bind(Prefix = "ID")]int movieId)
+        public ActionResult Index(int movieId)
         {
             var movie = _db.Movies.Find(movieId);
             if (movie != null)
@@ -52,13 +53,14 @@ namespace MoviesApp2.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Comment,Grade")] Review review)
+        public ActionResult Create(Review review)
         {
             if (ModelState.IsValid)
             {
+                review.UserId = User.Identity.GetUserId();
                 db.Reviews.Add(review);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id = review.MovieId});
             }
 
             return View(review);
@@ -72,7 +74,7 @@ namespace MoviesApp2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Review review = db.Reviews.Find(id);
-            if (review == null)
+            if (review == null || review.UserId != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }
@@ -84,7 +86,7 @@ namespace MoviesApp2.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Comment,Grade")] Review review)
+        public ActionResult Edit([Bind(Include = "Id,Comment,Grade")] Review review)
         {
             if (ModelState.IsValid)
             {
