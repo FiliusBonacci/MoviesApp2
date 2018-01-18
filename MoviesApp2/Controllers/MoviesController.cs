@@ -53,6 +53,7 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             var model = new CreateMovieViewModel();
@@ -65,7 +66,7 @@ namespace MoviesApp2.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,ReleaseDate, CategoryId")] Movie movie)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,ReleaseDate, CategoryId")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -79,6 +80,7 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -98,7 +100,7 @@ namespace MoviesApp2.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,ReleaseDate")] Movie movie)
+        public ActionResult Edit(Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -110,6 +112,7 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -142,6 +145,34 @@ namespace MoviesApp2.Controllers
                 _db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Edytuj(int? id)
+        {
+            
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+            
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edytuj(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(movie).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(movie);
         }
     }
 }

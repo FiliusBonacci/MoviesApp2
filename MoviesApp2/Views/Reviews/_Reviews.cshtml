@@ -33,11 +33,16 @@
 
 
 @helper formatGrade(Int32 grade) {
-    var color = "#13f713"; // zielony
-    if (grade < 3)
-    { 
-        color = "#ff3232"; // czerowny
+var color = "#13f713"; // zielony
+
+    if (grade == 3)
+    {
+        color = "#ff5900"; // pomaranczowy
     }
+else if (grade < 3)
+{
+    color = "#ff3232"; // czerowny
+}
     <span style="color:@color"> @String.Format("{0}", grade) </span>
 }
 

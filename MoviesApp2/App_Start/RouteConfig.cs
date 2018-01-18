@@ -14,6 +14,17 @@ namespace MoviesApp2
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "EdycjaFilmow", // Route name
+                "Edytuj/{id}", // URL with parameters
+                new
+                {
+                    controller = "Movies",
+                    action = "Edytuj",
+                    id = UrlParameter.Optional
+                } // Parameter defaults
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
