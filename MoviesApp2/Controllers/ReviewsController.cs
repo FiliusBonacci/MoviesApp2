@@ -73,7 +73,7 @@ namespace MoviesApp2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var review = db.Reviews.Find(id);
+            var review = _db.Reviews.Find(id);
             if (review == null)
             {
                 return HttpNotFound();
@@ -86,13 +86,14 @@ namespace MoviesApp2.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Comment,Grade")] Review review)
+        public ActionResult Edit( Review review)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(review).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                _db.Entry(review).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index", "Reviews", new { movieId = review.MovieId });
+                //                return RedirectToAction("Edytuj", "Movies", new {id = review.MovieId});
             }
             return View(review);
         }
@@ -104,7 +105,7 @@ namespace MoviesApp2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = _db.Reviews.Find(id);
             if (review == null)
             {
                 return HttpNotFound();
@@ -117,9 +118,9 @@ namespace MoviesApp2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Review review = db.Reviews.Find(id);
-            db.Reviews.Remove(review);
-            db.SaveChanges();
+            Review review = _db.Reviews.Find(id);
+            _db.Reviews.Remove(review);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
