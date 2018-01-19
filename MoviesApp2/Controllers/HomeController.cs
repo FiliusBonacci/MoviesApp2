@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace MoviesApp2.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            var categories = _db.Categories.ToList();
+            return View(categories);
         }
 
         public ActionResult About()

@@ -205,6 +205,11 @@
     <Compile Include="Migrations\201801181631367_add-user-id-to-review.Designer.cs">
       <DependentUpon>201801181631367_add-user-id-to-review.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191139367_customGradeValidator.cs" />
+    <Compile Include="Migrations\201801191139367_customGradeValidator.Designer.cs">
+      <DependentUpon>201801191139367_customGradeValidator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validators\ReviewValidator.cs" />
     <Compile Include="ViewModels\CreateMovieViewModel.cs" />
     <Compile Include="DB\MoviesContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -335,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801181631367_add-user-id-to-review.resx">
       <DependentUpon>201801181631367_add-user-id-to-review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191139367_customGradeValidator.resx">
+      <DependentUpon>201801191139367_customGradeValidator.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
