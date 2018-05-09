@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp2.UnitTests", "Mov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUITestProject2", "CodedUITestProject2\CodedUITestProject2.csproj", "{BB789546-A106-4D08-B985-3EDB875F3286}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{57ABA271-6C64-40FA-ACFB-4019447C16CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BB789546-A106-4D08-B985-3EDB875F3286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB789546-A106-4D08-B985-3EDB875F3286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB789546-A106-4D08-B985-3EDB875F3286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57ABA271-6C64-40FA-ACFB-4019447C16CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57ABA271-6C64-40FA-ACFB-4019447C16CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57ABA271-6C64-40FA-ACFB-4019447C16CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57ABA271-6C64-40FA-ACFB-4019447C16CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

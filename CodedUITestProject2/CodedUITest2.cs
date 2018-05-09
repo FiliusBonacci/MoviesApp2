@@ -30,6 +30,17 @@ namespace CodedUITestProject2
             this.UIMap.RegisterNewUserAssert();
         }
 
+
+        [TestMethod]
+        public void loginTest()
+        {
+
+            this.UIMap.loginTest();
+            this.UIMap.loginTestAssert();
+
+        }
+
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:
