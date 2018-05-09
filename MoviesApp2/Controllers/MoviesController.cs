@@ -53,7 +53,6 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Create
-        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             var model = new CreateMovieViewModel();
@@ -80,7 +79,7 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Edit/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,7 +111,7 @@ namespace MoviesApp2.Controllers
         }
 
         // GET: Movies/Delete/5
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
